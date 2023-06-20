@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<title>View All Movies</title>
+</head>
+<body>
+  <table class = "table table-striped table-bordered">
+   <thead class = "table-dark">
+    <tr><th>Movie_id</th><th>Movie_Name</th><th>Image</th><th>Movie_Details</th><th>Action</th></tr>
+    </thead>
+    <tbody>  
+     <tr th:each = "movies: ${movies}">
+       <td th:text = "${movies.movieId}"></td>
+					<td th:text = "${movies.movieName}"></td>
+					<td th:text = "${movies.image}"></td>
+					<td th:text = "${movies.movieDetails}"></td>
+					<td>
+						
+						
+						<a th:href = "@{/movies/{id}(id=${movies.movieId})}"
+						 class = "btn btn-danger">Delete</a>
+						 
+					</td>
+     </tr>
+    </tbody>
+   </table>
+</body>
+</html>
